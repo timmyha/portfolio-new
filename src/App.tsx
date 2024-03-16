@@ -70,7 +70,7 @@ function App() {
             <CommandArrow>&gt;</CommandArrow>
             <CommandPrompt
               ref={inputRef}
-              value={snap.prompt}
+              value={snap.prompt.toLowerCase()}
               onChange={(e) => onPromptChange(e)}
               placeholder="Please enter a command"
               autoFocus
