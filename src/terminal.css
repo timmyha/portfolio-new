@@ -1,0 +1,13 @@
+a {
+  color: #d8beff;
+  text-underline-offset: 5px;
+}
+
+a:hover {
+  color: #86f0d1;
+}
+
+.terminal {
+	display: flex;
+	flex-direction: row;
+}
