@@ -6,6 +6,7 @@ import parse, { Element } from "html-react-parser";
 import "./terminal.css";
 import Modal from "./components/Modal";
 import { Nyc } from "./assets/Nyc";
+import { nanoid } from "nanoid";
 
 function App() {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -13,7 +14,7 @@ function App() {
 
   const terminal = snap.terminal.map((line) => {
     return (
-      <span className="terminal" key={line}>
+      <span className="terminal" key={nanoid()}>
         {parse(line, {
           replace: (domNode) => {
             const domElement: Element = domNode as Element;
