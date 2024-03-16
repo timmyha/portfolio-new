@@ -89,7 +89,7 @@ const Container = styled.div`
   height: 100vh;
   background-color: #1f242c;
   color: #f0f0f0;
-  font-family: BlexMono Nerd Font;
+  font-family: "IBM Plex Mono", monospace;
 `;
 
 const CommandLine = styled.div`
@@ -102,7 +102,7 @@ const CommandArrow = styled.span`
   padding-left: 10px;
   color: #86f0d1;
   margin-top: 2px;
-  font-family: IBM Plex Mono;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
 `;
 
@@ -114,7 +114,7 @@ const CommandPrompt = styled.input`
   border: 0px;
   background-color: #1f242c;
   color: #f0f0f0;
-  font-family: BlexMono Nerd Font;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 1rem;
   padding-left: 10px;
   padding-top: 5px;
