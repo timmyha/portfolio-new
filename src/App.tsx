@@ -1,19 +1,33 @@
 import styled from "styled-components";
 import { useSnapshot } from "valtio";
 import { store } from "./store";
-import { useRef, ChangeEvent, FormEvent, useState } from "react";
+import { useRef, ChangeEvent, FormEvent, useState, useEffect } from "react";
 import parse, { Element } from "html-react-parser";
 import "./terminal.css";
 import Modal from "./components/Modal";
 import { Video } from "./assets/Video";
 import { nanoid } from "nanoid";
 import DialogModal from "./components/DialogModal";
+import MobileStatic from "./components/MobileStatic";
 import resumePdf from "./assets/timothyresume.pdf";
 
 function App() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const snap = useSnapshot(store);
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 768px)");
+    const apply = () => setIsMobile(mql.matches);
+    apply();
+    mql.addEventListener?.("change", apply);
+    mql.addListener?.(apply);
+    return () => {
+      mql.removeEventListener?.("change", apply);
+      mql.removeListener?.(apply);
+    };
+  }, []);
 
   const terminal = snap.terminal.map((line) => {
     return (
@@ -195,29 +209,35 @@ function App() {
 
   return (
     <>
-      <Container onClick={() => inputRef.current?.focus()}>
-        <Terminal>{terminal}</Terminal>
-        <form onSubmit={(e) => enterCommand(e)}>
-          <CommandLine>
-            <CommandArrow>&gt;</CommandArrow>
-            <CommandPrompt
-              ref={inputRef}
-              value={snap.prompt.toLowerCase()}
-              onChange={(e) => onPromptChange(e)}
-              placeholder="Please enter a command, or type 'help' for a list of commands"
-              autoFocus
-            />
-          </CommandLine>
-        </form>
-      </Container>
-      <DialogModal
-        isOpen={resumeOpen}
-        onClose={() => setResumeOpen(false)}
-        title="Resume"
-        fullBleed
-      >
-        <iframe src={resumePdf} title="Resume PDF" />
-      </DialogModal>
+      {isMobile ? (
+        <MobileStatic />
+      ) : (
+        <>
+          <Container onClick={() => inputRef.current?.focus()}>
+            <Terminal>{terminal}</Terminal>
+            <form onSubmit={(e) => enterCommand(e)}>
+              <CommandLine>
+                <CommandArrow>&gt;</CommandArrow>
+                <CommandPrompt
+                  ref={inputRef}
+                  value={snap.prompt.toLowerCase()}
+                  onChange={(e) => onPromptChange(e)}
+                  placeholder="Please enter a command, or type 'help' for a list of commands"
+                  autoFocus
+                />
+              </CommandLine>
+            </form>
+          </Container>
+          <DialogModal
+            isOpen={resumeOpen}
+            onClose={() => setResumeOpen(false)}
+            title="Resume"
+            fullBleed
+          >
+            <iframe src={resumePdf} title="Resume PDF" />
+          </DialogModal>
+        </>
+      )}
     </>
   );
 }

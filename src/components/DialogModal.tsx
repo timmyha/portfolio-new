@@ -2,36 +2,6 @@ import { useEffect, useRef, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import styled, { keyframes } from "styled-components";
 
-/**
- * DialogModal
- *  - Full-screen overlay with a centered dialog panel
- *  - Closes on:
- *      - ESC key (configurable)
- *      - Backdrop click (configurable)
- *      - Close button
- *  - Locks page scroll while open and restores on close
- *  - Returns focus to the previously focused element on close
- *
- * Usage:
- *   import DialogModal from "./DialogModal";
- *   import resumePdf from "../assets/timothyresume.pdf";
- *
- *   const [open, setOpen] = useState(false);
- *
- *   <button onClick={() => setOpen(true)}>Open Resume</button>
- *   <DialogModal
- *     isOpen={open}
- *     onClose={() => setOpen(false)}
- *     title="My Resume"
- *   >
- *     <iframe
- *       src={resumePdf}
- *       title="Resume PDF"
- *       style={{ width: "100%", height: "100%", border: 0 }}
- *     />
- *   </DialogModal>
- */
-
 export interface DialogModalProps {
   isOpen: boolean;
   onClose: () => void;
