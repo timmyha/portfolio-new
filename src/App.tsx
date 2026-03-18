@@ -31,6 +31,12 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+    });
+  }, [snap.terminal.length]);
+
   const terminal = snap.terminal.map((line) => {
     return (
       <span className="terminal" key={nanoid()}>
@@ -274,7 +280,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-beginning;
-  height: 100vh;
+  padding-left: 20px;
+  min-height: 100vh;
   background-color: #1f242c;
   color: #f0f0f0;
   font-family: "IBM Plex Mono", monospace;
