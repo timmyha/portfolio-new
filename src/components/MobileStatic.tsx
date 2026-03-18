@@ -115,7 +115,7 @@ const MobileStatic = () => {
           </Item>
         </List>
 
-        <SubsectionTitle>I also love to create ide themes</SubsectionTitle>
+        <P>I also love to create ide themes:</P>
         <List>
           <Item>
             <A
