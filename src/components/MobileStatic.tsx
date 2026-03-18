@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Video } from "../assets/Video";
 import resumePdf from "../assets/timothyresume.pdf";
 
 const MobileStatic = () => {
@@ -237,31 +236,6 @@ const Divider = styled.hr`
   border: none;
   border-top: 1px solid rgba(216, 190, 255, 0.2);
   margin: 4px 16px;
-`;
-
-const Media = styled.figure`
-  margin: 12px 0 16px;
-`;
-
-const MediaCaption = styled.figcaption`
-  color: #d8beff;
-  font-size: 0.9rem;
-  margin: 0 0 8px 0;
-`;
-
-const MediaFrame = styled.div`
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(216, 190, 255, 0.35);
-  border-radius: 8px;
-  background: #1b2027;
-
-  & iframe {
-    width: 100% !important;
-    height: 180px !important;
-    border: 0;
-    display: block;
-  }
 `;
 
 const NBSP = styled.span.attrs({ "aria-hidden": true })`
