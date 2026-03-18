@@ -5,7 +5,7 @@ import { useRef, ChangeEvent, FormEvent, useState } from "react";
 import parse, { Element } from "html-react-parser";
 import "./terminal.css";
 import Modal from "./components/Modal";
-import { Nyc } from "./assets/Nyc";
+import { Video } from "./assets/Video";
 import { nanoid } from "nanoid";
 import DialogModal from "./components/DialogModal";
 import resumePdf from "./assets/timothyresume.pdf";
@@ -22,7 +22,10 @@ function App() {
           replace: (domNode) => {
             const domElement: Element = domNode as Element;
             if (domElement.attribs && domElement.attribs.id === "nyc") {
-              return <Modal link="New York City???" content={<Nyc />} />;
+              return <Modal link="New York City???" content={<Video src="https://www.youtube.com/embed/1S828Y7Eais?si=vBeM8EhAEFikjkrE&amp;controls=0&autoplay=1" />} />;
+            }
+            if (domElement.attribs && domElement.attribs.id === "efc") {
+              return <Modal link="Everton Football Club" content={<Video src="https://www.youtube.com/embed/KHDEiu3ViCI?si=MvtiiO02RMPA3n3K&amp;controls=0&autoplay=1" />} />;
             }
             if (domElement.attribs && domElement.attribs.id === "resume") {
               return (
@@ -98,7 +101,7 @@ function App() {
         `&nbsp;&nbsp;In my free time, you may find me rating <a href="https://letterboxd.com/film/howards-end/">&nbsp;period dramas&nbsp;</a> on Letterboxd,`
       );
       store.terminal.push(
-        `&nbsp&nbspdreaming about <a href="https://www.riversidethaicooking.com/north-eastern-cuisine/lao-style-mushroom-soup/">&nbspsoup</a>, complaining about <a href="">&nbspEverton Football Club</a>, or planning`
+        `&nbsp&nbspdreaming about <a href="https://www.riversidethaicooking.com/north-eastern-cuisine/lao-style-mushroom-soup/">&nbspsoup</a>, complaining about <a id="efc" href="">&nbspEverton Football Club</a>, or planning`
        );
       store.terminal.push(
         `&nbsp&nbspmy next <a href="https://en.wikipedia.org/wiki/Ho_Chi_Minh_City">&nbspvacation</a>.`
@@ -201,7 +204,7 @@ function App() {
               ref={inputRef}
               value={snap.prompt.toLowerCase()}
               onChange={(e) => onPromptChange(e)}
-              placeholder="Please enter a command"
+              placeholder="Please enter a command, or type 'help' for a list of commands"
               autoFocus
             />
           </CommandLine>
