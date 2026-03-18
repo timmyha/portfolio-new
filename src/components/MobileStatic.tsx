@@ -194,12 +194,6 @@ const SectionTitle = styled.h2`
   color: #d8beff;
 `;
 
-const SubsectionTitle = styled.h3`
-  margin: 16px 0 10px 0;
-  font-size: 1.05rem;
-  color: #d8beff;
-`;
-
 const P = styled.p`
   margin: 0 0 12px 0;
   font-size: 0.98rem;
