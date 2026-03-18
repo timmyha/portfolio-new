@@ -95,6 +95,7 @@ function App() {
     ABOUT = "about",
     WORK = "work",
     PORTFOLIO = "portfolio",
+    SITEMAP = "sitemap",
     HELP = "help",
     CLEAR = "clear",
     RESET = "reset",
@@ -187,6 +188,30 @@ function App() {
       );
     }
 
+    if (cmd === Commands.SITEMAP) {
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;home`
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://blog.vercel.app/">blog</a>'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://links.timmy.gg">links</a>'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://prefix.timmy.gg/">prefix</a>'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;&nbsp;└── <a href="https://crashpad.vercel.app/">crashpad</a>'
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+    }
+
     if (cmd === Commands.HELP) {
       store.terminal.push(
         `&nbsp;&nbsp;`
@@ -202,6 +227,9 @@ function App() {
       );
       store.terminal.push(
         '&nbsp;&nbsp;&nbsp;<a id="cmd-portfolio" href="#">portfolio</a>, show projects.'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;<a id="cmd-sitemap" href="#">sitemap</a>, show site map.'
       );
       store.terminal.push(
         '&nbsp;&nbsp;&nbsp;<a id="cmd-clear" href="#">clear</a>, clear the terminal.'
