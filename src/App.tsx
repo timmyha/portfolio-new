@@ -138,7 +138,7 @@ function App() {
         `&nbsp;&nbsp;`
       );
       store.terminal.push(
-        '&nbsp;&nbsp;Formerly of <a href="https://nooklyn.com">&nbspNooklyn&nbsp</a> and <a href="www.ryder.com">&nbspRyder</a>, currently seeking new opportunities.'
+        '&nbsp;&nbsp;Formerly of <a href="www.ryder.com">&nbspRyder&nbsp</a> and <a href="https://nooklyn.com">&nbspNooklyn</a>, currently seeking new opportunities.'
       );
       store.terminal.push(
         `&nbsp;&nbsp;`
@@ -324,7 +324,7 @@ const Terminal = styled.div`
 const FloatingToggle = styled.a`
   position: fixed;
   right: 12px;
-  top: 12px;
+  top: 25px;
   color: #86f0d1;
   text-decoration: none;
   background: rgba(27, 32, 39, 0.85);

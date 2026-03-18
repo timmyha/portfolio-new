@@ -4,6 +4,7 @@ import resumePdf from "../assets/timothyresume.pdf";
 const MobileStatic = () => {
   return (
     <Page>
+      <TopStrip />
       <Header>
         <Title>timothy hansher</Title>
         <Subtitle>software developer</Subtitle>
@@ -40,7 +41,7 @@ const MobileStatic = () => {
           </A>
           , or planning my next{" "}
           <A
-            href="https://en.wikipedia.org/wiki/Ho_Chi_Minh_City"
+            href="https://en.wikipedia.org/wiki/North_Sentinel_Island"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -55,13 +56,13 @@ const MobileStatic = () => {
       <Section aria-labelledby="work">
         <SectionTitle id="work">work</SectionTitle>
         <P>
-          formerly of{" "}
-          <A href="https://nooklyn.com" target="_blank" rel="noopener noreferrer">
-            nooklyn
-          </A>{" "}
-          and{" "}
+          Formerly of{" "}
           <A href="https://www.ryder.com" target="_blank" rel="noopener noreferrer">
             Ryder
+          </A>{" "}
+          and{" "}
+          <A href="https://nooklyn.com" target="_blank" rel="noopener noreferrer">
+            nooklyn
           </A>
           , currently seeking new opportunities.
         </P>
@@ -89,7 +90,7 @@ const MobileStatic = () => {
 
       <Section aria-labelledby="portfolio">
         <SectionTitle id="portfolio">portfolio</SectionTitle>
-        <P>some projects i&apos;ve worked on:</P>
+        <P>Some projects i&apos;ve worked on:</P>
         <List>
           <Item>
             <A
@@ -114,7 +115,7 @@ const MobileStatic = () => {
           </Item>
         </List>
 
-        <SubsectionTitle>i also love to create ide themes</SubsectionTitle>
+        <SubsectionTitle>I also love to create ide themes</SubsectionTitle>
         <List>
           <Item>
             <A
@@ -269,6 +270,12 @@ const Divider = styled.hr`
   border: none;
   border-top: 1px solid rgba(216, 190, 255, 0.2);
   margin: 4px 16px;
+`;
+
+const TopStrip = styled.div`
+  height: 10px;
+  width: 100%;
+  background: linear-gradient(90deg, #86f0d1, #d8beff);
 `;
 
 export default MobileStatic;
