@@ -140,7 +140,7 @@ function App() {
         '&nbsp;&nbsp;&nbsp;<a href="https://crashpad.vercel.app/">crashpad</a>, a tongue-in-cheek AirBnb-esque experience.'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a href="https://timmy.gg/prefix">prefix</a>, a web browser new-tab start page with shortcuts, widgets, and smart searching.'
+        '&nbsp;&nbsp;&nbsp;<a href="https://prefix.timmy.gg/">prefix</a>, a web browser new-tab start page with shortcuts, widgets, and smart searching.'
       );
       store.terminal.push(
         `&nbsp;&nbsp;`
