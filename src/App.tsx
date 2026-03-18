@@ -1,16 +1,19 @@
 import styled from "styled-components";
 import { useSnapshot } from "valtio";
 import { store } from "./store";
-import { useRef, ChangeEvent, FormEvent } from "react";
+import { useRef, ChangeEvent, FormEvent, useState } from "react";
 import parse, { Element } from "html-react-parser";
 import "./terminal.css";
 import Modal from "./components/Modal";
 import { Nyc } from "./assets/Nyc";
 import { nanoid } from "nanoid";
+import DialogModal from "./components/DialogModal";
+import resumePdf from "./assets/timothyresume.pdf";
 
 function App() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const snap = useSnapshot(store);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   const terminal = snap.terminal.map((line) => {
     return (
@@ -20,6 +23,38 @@ function App() {
             const domElement: Element = domNode as Element;
             if (domElement.attribs && domElement.attribs.id === "nyc") {
               return <Modal link="New York City???" content={<Nyc />} />;
+            }
+            if (domElement.attribs && domElement.attribs.id === "resume") {
+              return (
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setResumeOpen(true);
+                  }}
+                >
+                  Resume
+                </a>
+              );
+            }
+            if (
+              domElement.name === "a" &&
+              domElement.attribs &&
+              typeof domElement.attribs.id === "string" &&
+              domElement.attribs.id.startsWith("cmd-")
+            ) {
+              const cmd = domElement.attribs.id.replace("cmd-", "");
+              return (
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    runCommand(cmd);
+                  }}
+                >
+                  {cmd}
+                </a>
+              );
             }
           },
         })}
@@ -33,31 +68,125 @@ function App() {
 
   enum Commands {
     ABOUT = "about",
+    WORK = "work",
     PORTFOLIO = "portfolio",
-    GAME = "game",
+    HELP = "help",
     CLEAR = "clear",
+    RESET = "reset",
   }
 
-  const enumMatch = Object.values(Commands).includes(store.prompt as Commands);
+  function runCommand(raw: string) {
+    const cmd = raw.toLowerCase().trim();
+    store.terminal.push("<span>&gt;&nbsp;</span>" + cmd);
+
+    if (cmd === Commands.CLEAR) {
+      store.terminal = [];
+      return;
+    }
+
+    if (cmd === Commands.ABOUT) {
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;I am a software engineer based in<a id="nyc" href="#">New York City</a>.`
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;In my free time, you may find me rating <a href="https://letterboxd.com/film/howards-end/">&nbsp;period dramas&nbsp;</a> on Letterboxd,`
+      );
+      store.terminal.push(
+        `&nbsp&nbspdreaming about <a href="https://www.riversidethaicooking.com/north-eastern-cuisine/lao-style-mushroom-soup/">&nbspsoup</a>, complaining about <a href="">&nbspEverton Football Club</a>, or planning`
+       );
+      store.terminal.push(
+        `&nbsp&nbspmy next <a href="https://en.wikipedia.org/wiki/Ho_Chi_Minh_City">&nbspvacation</a>.`
+       );
+       store.terminal.push(
+         `&nbsp;&nbsp;`
+       );
+    }
+
+    if (cmd === Commands.WORK) {
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;Formerly of <a href="https://nooklyn.com">&nbspNooklyn&nbsp</a> and <a href="www.ryder.com">&nbspRyder</a>, currently seeking new opportunities.'
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;View my&nbsp<a id="resume" href="#">Resume</a>.'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;View my <a href="https://github.com/timmyha">&nbspGitHub</a>.'
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+    }
+
+    if (cmd === Commands.PORTFOLIO) {
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+      store.terminal.push(
+        "&nbsp;&nbsp;Some projects I've worked on:"
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;<a href="https://crashpad.vercel.app/">crashpad</a>, a tongue-in-cheek AirBnb-esque experience.'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;<a href="https://timmy.gg/prefix">prefix</a>, a web browser new-tab start page with shortcuts, widgets, and smart searching.'
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+    }
+
+    if (cmd === Commands.HELP) {
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+      store.terminal.push(
+        "&nbsp;&nbsp;Available commands:"
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;<a id="cmd-about" href="#">about</a>, show about information.'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;<a id="cmd-work" href="#">work</a>, show work experience.'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;<a id="cmd-portfolio" href="#">portfolio</a>, show projects.'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;<a id="cmd-clear" href="#">clear</a>, clear the terminal.'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;<a id="cmd-reset" href="#">reset</a>, reload the page.'
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+    }
+
+    if (cmd === Commands.RESET) {
+      window.location.reload();
+      return;
+    }
+
+    if (!Object.values(Commands).includes(cmd as Commands)) {
+      store.terminal.push(`Command not found: ${cmd}`);
+    }
+  }
 
   const enterCommand = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    store.terminal.push("<span>&gt;&nbsp;</span>" + store.prompt);
-    if (store.prompt === Commands.CLEAR) store.terminal = [];
-    if (store.prompt === Commands.ABOUT) {
-      store.terminal.push(
-        `&nbsp;&nbsp;Timothy Hansher is a software engineer based in<a id="nyc" href="#">New York City</a>.`
-      );
-    }
-    if (store.prompt === Commands.PORTFOLIO) {
-      store.terminal.push("Here are a few projects I've been working on:");
-      store.terminal.push('&nbsp;&nbsp;&nbsp;<a href="#">screenburn</a>');
-      store.terminal.push('&nbsp;&nbsp;&nbsp;<a href="#">crashpad</a>');
-    }
-    if (store.prompt === Commands.GAME) {
-      store.terminal.push("You're in a dark alleyway..");
-    }
-    if (!enumMatch) store.terminal.push(`Command not found: ${store.prompt}`);
+    runCommand(store.prompt);
     store.prompt = "";
   };
 
@@ -78,6 +207,14 @@ function App() {
           </CommandLine>
         </form>
       </Container>
+      <DialogModal
+        isOpen={resumeOpen}
+        onClose={() => setResumeOpen(false)}
+        title="Resume"
+        fullBleed
+      >
+        <iframe src={resumePdf} title="Resume PDF" />
+      </DialogModal>
     </>
   );
 }
