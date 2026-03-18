@@ -79,7 +79,7 @@ const DialogModal = ({
       }
     };
     window.addEventListener("keydown", onKeyDown, { capture: true });
-    return () => window.removeEventListener("keydown", onKeyDown, { capture: true } as any);
+    return () => window.removeEventListener("keydown", onKeyDown, { capture: true } as EventListenerOptions);
   }, [isOpen, closeOnEsc, onClose]);
 
   if (!isOpen) return null;

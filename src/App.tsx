@@ -154,10 +154,25 @@ function App() {
         "&nbsp;&nbsp;Some projects I've worked on:"
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a href="https://crashpad.vercel.app/">crashpad</a>, a tongue-in-cheek AirBnb-esque experience.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://crashpad.vercel.app/">crashpad</a>, a tongue-in-cheek AirBnb-esque experience.'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a href="https://prefix.timmy.gg/">prefix</a>, a web browser new-tab start page with shortcuts, widgets, and smart searching.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://prefix.timmy.gg/">prefix</a>, a web browser new-tab start page with shortcuts, widgets, and smart searching.'
+      );
+      store.terminal.push(
+        `&nbsp;&nbsp;`
+      );
+      store.terminal.push(
+        "&nbsp;&nbsp;i also love to create ide themes:"
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://github.com/timmyha/hobbyist-goth">hobbyist-goth</a>(vscode)'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://github.com/timmyha/ekkamai.nvim">ekkamai.nvim</a>(neovim)'
+      );
+      store.terminal.push(
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://github.com/timmyha/henna.nvim">henna.nvim</a>(neovim)'
       );
       store.terminal.push(
         `&nbsp;&nbsp;`

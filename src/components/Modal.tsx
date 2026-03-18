@@ -3,7 +3,7 @@ import { useState } from "react";
 
 interface ModalProps {
   link: string;
-  content: any;
+  content: JSX.Element;
 }
 
 const Modal = ({ link, content }: ModalProps) => {

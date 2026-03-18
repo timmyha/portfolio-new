@@ -11,11 +11,10 @@ const MobileStatic = () => {
 
       <Section aria-labelledby="about">
         <SectionTitle id="about">about</SectionTitle>
-        <P>i am a software engineer based in new york city.</P>
+        <P>I am a software engineer based in new york city.</P>
 
         <P>
-          In my free time, you may find me rating
-          <NBSP />
+          In my free time, you may find me rating{" "}
           <A
             href="https://letterboxd.com/film/howards-end/"
             target="_blank"
@@ -23,8 +22,7 @@ const MobileStatic = () => {
           >
             period dramas
           </A>
-          <NBSP /> on letterboxd, dreaming about
-          <NBSP />
+          {" "}on Letterboxd, dreaming about{" "}
           <A
             href="https://www.riversidethaicooking.com/north-eastern-cuisine/lao-style-mushroom-soup/"
             target="_blank"
@@ -32,17 +30,15 @@ const MobileStatic = () => {
           >
             soup
           </A>
-          , complaining about
-          <NBSP />
+          , complaining about{" "}
           <A
             href="https://www.evertonfc.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            everton football club
+            Everton Football Club
           </A>
-          , or planning my next
-          <NBSP />
+          , or planning my next{" "}
           <A
             href="https://en.wikipedia.org/wiki/Ho_Chi_Minh_City"
             target="_blank"
@@ -59,16 +55,13 @@ const MobileStatic = () => {
       <Section aria-labelledby="work">
         <SectionTitle id="work">work</SectionTitle>
         <P>
-          formerly of
-          <NBSP />
+          formerly of{" "}
           <A href="https://nooklyn.com" target="_blank" rel="noopener noreferrer">
             nooklyn
-          </A>
-          <NBSP />
-          and
-          <NBSP />
+          </A>{" "}
+          and{" "}
           <A href="https://www.ryder.com" target="_blank" rel="noopener noreferrer">
-            ryder
+            Ryder
           </A>
           , currently seeking new opportunities.
         </P>
@@ -78,20 +71,18 @@ const MobileStatic = () => {
             href={resumePdf}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Open resume PDF in a new tab"
+            aria-label="open resume pdf in a new tab"
           >
-            view resume (pdf)
+            View resume (pdf)
           </PrimaryLink>
           <SecondaryLink
             href="https://github.com/timmyha"
             target="_blank"
             rel="noopener noreferrer"
           >
-            github
+            GitHub
           </SecondaryLink>
         </Actions>
-
-
       </Section>
 
       <Divider />
@@ -122,10 +113,46 @@ const MobileStatic = () => {
             searching.
           </Item>
         </List>
+
+        <SubsectionTitle>i also love to create ide themes</SubsectionTitle>
+        <List>
+          <Item>
+            <A
+              href="https://github.com/timmyha/hobbyist-goth"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              hobbyist-goth
+            </A>
+            (vs code)
+          </Item>
+          <Item>
+            <A
+              href="https://github.com/timmyha/ekkamai.nvim"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ekkamai.nvim
+            </A>
+            (neovim)
+          </Item>
+          <Item>
+            <A
+              href="https://github.com/timmyha/henna.nvim"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              henna.nvim
+            </A>
+            (neovim)
+          </Item>
+        </List>
       </Section>
     </Page>
   );
 };
+
+/* Styled Components (theme aligned with the desktop app) */
 
 const Page = styled.main`
   min-height: 100vh;
@@ -166,6 +193,12 @@ const SectionTitle = styled.h2`
   color: #d8beff;
 `;
 
+const SubsectionTitle = styled.h3`
+  margin: 16px 0 10px 0;
+  font-size: 1.05rem;
+  color: #d8beff;
+`;
+
 const P = styled.p`
   margin: 0 0 12px 0;
   font-size: 0.98rem;
@@ -178,25 +211,25 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  margin: 0 0 8px 0;
+  margin: 0 0 8px 20px;
   line-height: 1.6;
 `;
 
 const A = styled.a`
-  color: #d8beff;
+  color: #86f0d1;
   text-decoration: none;
   border-bottom: 1px dashed rgba(216, 190, 255, 0.5);
   transition: color 120ms ease, border-color 120ms ease;
 
   &:hover,
   &:focus {
-    color: #86f0d1;
+    color: #d8beff;
     border-bottom-color: rgba(134, 240, 209, 0.7);
     outline: none;
   }
 `;
 
-const PrimaryLink = styled(A).attrs({ as: "a" })`
+const PrimaryLink = styled(A)`
   display: inline-block;
   padding: 10px 14px;
   border-radius: 8px;
@@ -237,14 +270,5 @@ const Divider = styled.hr`
   border-top: 1px solid rgba(216, 190, 255, 0.2);
   margin: 4px 16px;
 `;
-
-const NBSP = styled.span.attrs({ "aria-hidden": true })`
-  display: inline;
-  &::before {
-    content: "\\00a0";
-  }
-`;
-
-
 
 export default MobileStatic;
