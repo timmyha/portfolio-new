@@ -16,6 +16,8 @@ function App() {
   const snap = useSnapshot(store);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches);
+  const [viewMode, setViewMode] = useState<'auto' | 'static' | 'interactive'>('auto');
+  const showStatic = viewMode === 'static' || (viewMode === 'auto' && isMobile);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 768px)");
@@ -118,7 +120,7 @@ function App() {
         `&nbsp&nbspdreaming about <a href="https://www.riversidethaicooking.com/north-eastern-cuisine/lao-style-mushroom-soup/">&nbspsoup</a>, complaining about <a id="efc" href="">&nbspEverton Football Club</a>, or planning`
        );
       store.terminal.push(
-        `&nbsp&nbspmy next <a href="https://en.wikipedia.org/wiki/Ho_Chi_Minh_City">&nbspvacation</a>.`
+        `&nbsp&nbspmy next <a href="https://en.wikipedia.org/wiki/North_Sentinel_Island">&nbspvacation</a>.`
        );
        store.terminal.push(
          `&nbsp;&nbsp;`
@@ -224,7 +226,7 @@ function App() {
 
   return (
     <>
-      {isMobile ? (
+      {showStatic ? (
         <MobileStatic />
       ) : (
         <>
@@ -252,6 +254,17 @@ function App() {
             <iframe src={resumePdf} title="Resume PDF" />
           </DialogModal>
         </>
+      )}
+      {!isMobile && (
+        <FloatingToggle
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            setViewMode(showStatic ? 'interactive' : 'static');
+          }}
+        >
+          {showStatic ? "Terminal view" : "Touch-friendly view"}
+        </FloatingToggle>
       )}
     </>
   );
@@ -299,6 +312,30 @@ const CommandPrompt = styled.input`
 const Terminal = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const FloatingToggle = styled.a`
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  color: #86f0d1;
+  text-decoration: none;
+  background: rgba(27, 32, 39, 0.85);
+  border: 1px solid #86f0d1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+  z-index: 20000;
+
+  &:hover {
+    color: #d8beff;
+    border-color: #d8beff;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default App;
