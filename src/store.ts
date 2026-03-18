@@ -8,7 +8,7 @@ interface StoreTypes {
 
 export const store: StoreTypes = proxy({
   terminal: ['<span className="terminal">welcome to Timothy Hansher\'s program!</span>',
-    `<span>hello</span>`,
+    `<span>(╯°□°)╯︵ ┻━┻</span>`,
     '<span className="terminal">please select one of the following options to navigate:</span>',
     '<span className="termainal">&nbsp;&nbsp;</span>',
     '<span className="terminal">&nbsp;&nbsp;<a id="cmd-about" href="#">about</a></span>',
