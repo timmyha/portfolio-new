@@ -163,10 +163,10 @@ function App() {
         "&nbsp;&nbsp;Some projects I've worked on:"
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://crashpad.vercel.app/">crashpad</a>, a tongue-in-cheek AirBnb-esque experience.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://crashpad.timmyha.net/">crashpad</a>, a tongue-in-cheek AirBnb-esque experience.'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://prefix.timmy.gg/">prefix</a>, a web browser new-tab start page with shortcuts, widgets, and smart searching.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="https://prefix.timmyha.net/">prefix</a>, a web browser new-tab start page with shortcuts, widgets, and smart searching.'
       );
       store.terminal.push(
         `&nbsp;&nbsp;`
@@ -196,16 +196,16 @@ function App() {
         `&nbsp;&nbsp;home`
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://blog.timmyha.app/">blog</a> (down atm)'
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://blog.timmyha.net/">blog</a> (down atm)'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://linktree-five-mu.vercel.app">links</a>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://links.timmyha.net">links</a>'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="aerith-gi0rfhe13-timmyha.vercel.app">prefix</a>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://prefix.timmyha.net">prefix</a>'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;└── <a href="https://crashpad.vercel.app/">crashpad</a>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;└── <a href="https://crashpad.timmyha.net/">crashpad</a>'
       );
       store.terminal.push(
         `&nbsp;&nbsp;`
