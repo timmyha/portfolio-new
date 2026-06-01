@@ -196,13 +196,13 @@ function App() {
         `&nbsp;&nbsp;home`
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://blog.vercel.app/">blog</a>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://blog.timmyha.app/">blog</a> (down atm)'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://links.timmy.gg">links</a>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://linktree-five-mu.vercel.app">links</a>'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="https://prefix.timmy.gg/">prefix</a>'
+        '&nbsp;&nbsp;&nbsp;&nbsp;├── <a href="aerith-gi0rfhe13-timmyha.vercel.app">prefix</a>'
       );
       store.terminal.push(
         '&nbsp;&nbsp;&nbsp;&nbsp;└── <a href="https://crashpad.vercel.app/">crashpad</a>'
