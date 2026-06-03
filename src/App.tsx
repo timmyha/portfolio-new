@@ -139,7 +139,7 @@ function App() {
         `&nbsp;&nbsp;`
       );
       store.terminal.push(
-        '&nbsp;&nbsp;Formerly of <a href="www.ryder.com">&nbspRyder&nbsp</a> and <a href="https://nooklyn.com">&nbspNooklyn</a>, currently seeking new opportunities.'
+        '&nbsp;&nbsp;Formerly of <a href="https://www.ryder.com">&nbspRyder&nbsp</a> and <a href="https://nooklyn.com">&nbspNooklyn</a>, currently seeking new opportunities.'
       );
       store.terminal.push(
         `&nbsp;&nbsp;`
