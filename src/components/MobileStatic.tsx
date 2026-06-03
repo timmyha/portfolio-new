@@ -1,155 +1,168 @@
+import React from "react";
 import styled from "styled-components";
 import resumePdf from "../assets/timothyresume.pdf";
+import DialogModal from "./DialogModal";
 
 const MobileStatic = () => {
+  const [resumeOpen, setResumeOpen] = React.useState(false);
+
   return (
-    <Page>
-      <TopStrip />
-      <Header>
-        <Title>timothy hansher</Title>
-        <Subtitle>software developer</Subtitle>
-      </Header>
+    <>
+      <Page>
+        <TopStrip />
+        <Header>
+          <Title>timothy hansher</Title>
+          <Subtitle>software developer</Subtitle>
+        </Header>
 
-      <Section aria-labelledby="about">
-        <SectionTitle id="about">about</SectionTitle>
-        <P>I am a software engineer based in new york city.</P>
+        <Section aria-labelledby="about">
+          <SectionTitle id="about">about</SectionTitle>
+          <P>I am a software engineer based in new york city.</P>
 
-        <P>
-          In my free time, you may find me rating{" "}
-          <A
-            href="https://letterboxd.com/film/howards-end/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            period dramas
-          </A>
-          {" "}on Letterboxd, dreaming about{" "}
-          <A
-            href="https://www.riversidethaicooking.com/north-eastern-cuisine/lao-style-mushroom-soup/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            soup
-          </A>
-          , complaining about{" "}
-          <A
-            href="https://www.evertonfc.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Everton Football Club
-          </A>
-          , or planning my next{" "}
-          <A
-            href="https://en.wikipedia.org/wiki/North_Sentinel_Island"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            vacation
-          </A>
-          .
-        </P>
-      </Section>
-
-      <Divider />
-
-      <Section aria-labelledby="work">
-        <SectionTitle id="work">work</SectionTitle>
-        <P>
-          Formerly of{" "}
-          <A href="https://www.ryder.com" target="_blank" rel="noopener noreferrer">
-            Ryder
-          </A>{" "}
-          and{" "}
-          <A href="https://nooklyn.com" target="_blank" rel="noopener noreferrer">
-            nooklyn
-          </A>
-          , currently seeking new opportunities.
-        </P>
-
-        <Actions>
-          <PrimaryLink
-            href={resumePdf}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="open resume pdf in a new tab"
-          >
-            View resume (pdf)
-          </PrimaryLink>
-          <SecondaryLink
-            href="https://github.com/timmyha"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </SecondaryLink>
-        </Actions>
-      </Section>
-
-      <Divider />
-
-      <Section aria-labelledby="portfolio">
-        <SectionTitle id="portfolio">portfolio</SectionTitle>
-        <P>Some projects i&apos;ve worked on:</P>
-        <List>
-          <Item>
+          <P>
+            In my free time, you may find me rating{" "}
             <A
-              href="https://crashpad.vercel.app/"
+              href="https://letterboxd.com/film/howards-end/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              crashpad
+              period dramas
             </A>
-            , a tongue-in-cheek airbnb-esque experience.
-          </Item>
-          <Item>
+            {" "}on Letterboxd, dreaming about{" "}
             <A
-              href="https://timmy.gg/prefix"
+              href="https://www.riversidethaicooking.com/north-eastern-cuisine/lao-style-mushroom-soup/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              prefix
+              soup
             </A>
-            , a web browser new-tab start page with shortcuts, widgets, and smart
-            searching.
-          </Item>
-        </List>
+            , complaining about{" "}
+            <A
+              href="https://www.evertonfc.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Everton Football Club
+            </A>
+            , or planning my next{" "}
+            <A
+              href="https://en.wikipedia.org/wiki/North_Sentinel_Island"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              vacation
+            </A>
+            .
+          </P>
+        </Section>
 
-        <P>I also love to create ide themes:</P>
-        <List>
-          <Item>
-            <A
-              href="https://github.com/timmyha/hobbyist-goth"
+        <Divider />
+
+        <Section aria-labelledby="work">
+          <SectionTitle id="work">work</SectionTitle>
+          <P>
+            Formerly of{" "}
+            <A href="https://www.ryder.com" target="_blank" rel="noopener noreferrer">
+              Ryder
+            </A>{" "}
+            and{" "}
+            <A href="https://nooklyn.com" target="_blank" rel="noopener noreferrer">
+              nooklyn
+            </A>
+            , currently seeking new opportunities.
+          </P>
+
+          <Actions>
+            <PrimaryLink
+              onClick={() => setResumeOpen(true)}
+              aria-label="open resume pdf"
+            >
+              View resume (pdf)
+            </PrimaryLink>
+            <SecondaryLink
+              href="https://github.com/timmyha"
               target="_blank"
               rel="noopener noreferrer"
             >
-              hobbyist-goth
-            </A>
-            (vs code)
-          </Item>
-          <Item>
-            <A
-              href="https://github.com/timmyha/ekkamai.nvim"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ekkamai.nvim
-            </A>
-            (neovim)
-          </Item>
-          <Item>
-            <A
-              href="https://github.com/timmyha/henna.nvim"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              henna.nvim
-            </A>
-            (neovim)
-          </Item>
-        </List>
-      </Section>
-    </Page>
+              GitHub
+            </SecondaryLink>
+          </Actions>
+        </Section>
+
+        <Divider />
+
+        <Section aria-labelledby="portfolio">
+          <SectionTitle id="portfolio">portfolio</SectionTitle>
+          <P>Some projects i&apos;ve worked on:</P>
+          <List>
+            <Item>
+              <A
+                href="https://crashpad.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                crashpad
+              </A>
+              , a tongue-in-cheek airbnb-esque experience.
+            </Item>
+            <Item>
+              <A
+                href="https://timmy.gg/prefix"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                prefix
+              </A>
+              , a web browser new-tab start page with shortcuts, widgets, and smart
+              searching.
+            </Item>
+          </List>
+
+          <P>I also love to create ide themes:</P>
+          <List>
+            <Item>
+              <A
+                href="https://github.com/timmyha/hobbyist-goth"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                hobbyist-goth
+              </A>
+              (vs code)
+            </Item>
+            <Item>
+              <A
+                href="https://github.com/timmyha/ekkamai.nvim"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ekkamai.nvim
+              </A>
+              (neovim)
+            </Item>
+            <Item>
+              <A
+                href="https://github.com/timmyha/henna.nvim"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                henna.nvim
+              </A>
+              (neovim)
+            </Item>
+          </List>
+        </Section>
+      </Page>
+
+      <DialogModal
+        isOpen={resumeOpen}
+        onClose={() => setResumeOpen(false)}
+        title="Resume"
+        fullBleed
+      >
+        <iframe src={resumePdf} title="Resume PDF" />
+      </DialogModal>
+    </>
   );
 };
 
