@@ -217,25 +217,25 @@ function App() {
         `&nbsp;&nbsp;`
       );
       store.terminal.push(
-        "&nbsp;&nbsp;Available commands:"
+        "&nbsp;&nbsp;&nbsp;&nbsp;Available commands:"
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a id="cmd-about" href="#">about</a>, show about information.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="cmd-about" href="#">about</a>, show about information.'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a id="cmd-work" href="#">work</a>, show work experience.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="cmd-work" href="#">work</a>, show work experience.'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a id="cmd-portfolio" href="#">portfolio</a>, show projects.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="cmd-portfolio" href="#">portfolio</a>, show projects.'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a id="cmd-sitemap" href="#">sitemap</a>, show site map.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="cmd-sitemap" href="#">sitemap</a>, show site map.'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a id="cmd-clear" href="#">clear</a>, clear the terminal.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="cmd-clear" href="#">clear</a>, clear the terminal.'
       );
       store.terminal.push(
-        '&nbsp;&nbsp;&nbsp;<a id="cmd-reset" href="#">reset</a>, reload the page.'
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="cmd-reset" href="#">reset</a>, reload the page.'
       );
       store.terminal.push(
         `&nbsp;&nbsp;`
