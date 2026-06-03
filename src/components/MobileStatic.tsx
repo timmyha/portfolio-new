@@ -97,7 +97,7 @@ const MobileStatic = () => {
           <List>
             <Item>
               <A
-                href="https://crashpad.vercel.app/"
+                href="https://crashpad.timmyha.net/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -107,7 +107,7 @@ const MobileStatic = () => {
             </Item>
             <Item>
               <A
-                href="https://timmy.gg/prefix"
+                href="https://prefix.timmyha.net"
                 target="_blank"
                 rel="noopener noreferrer"
               >
